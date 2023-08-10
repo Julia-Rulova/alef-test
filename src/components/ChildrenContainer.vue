@@ -2,10 +2,11 @@
   <div class="card">
     <custom-input
       :id="child.id + 'child-name'"
-      :label="'Возраст'"
+      :label="'Имя'"
       :name="child.id + 'childName'"
       :type="'text'"
       :value="child.name"
+      v-model:value="child.name"
     ></custom-input>
     <custom-input
       :id="child.id + 'child-age'"
@@ -13,6 +14,7 @@
       :name="child.id + 'childAge'"
       :type="'number'"
       :value="child.age"
+      v-model:value="child.age"
     ></custom-input>
 
     <button
@@ -47,10 +49,17 @@ export default {
   cursor: pointer;
   border: none;
   background-color: transparent;
-  color: var(--colors-primary, #01a7fd);
+  color: #01a7fd;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
+}
+
+@media screen and (max-width: 840px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 </style>

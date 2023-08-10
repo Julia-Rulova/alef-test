@@ -64,4 +64,27 @@ export default {};
 .router-link-exact-active {
   color: #000;
 }
+
+@media screen and (max-width: 600px) {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 10px;
+  }
+
+  .header__logo {
+    width: 100px;
+    height: 25px;
+  }
+
+  .header__menu-list {
+    gap: 12px;
+  }
+
+  .header__link {
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
 </style>

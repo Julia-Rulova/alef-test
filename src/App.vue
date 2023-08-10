@@ -58,7 +58,14 @@ export default {
 
 .app__wrapper {
   width: 100%;
-  margin: 0 auto;
+  height: 100%;
+  margin: 0 auto auto;
   padding: 30px 0;
+}
+
+@media screen and (max-width: 600px) {
+  .app__wrapper {
+    padding: 15px;
+  }
 }
 </style>

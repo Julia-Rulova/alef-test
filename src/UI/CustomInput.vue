@@ -9,6 +9,7 @@
       :id="id"
       :value="value"
       @input="updateInput"
+      required
     />
   </div>
 </template>
