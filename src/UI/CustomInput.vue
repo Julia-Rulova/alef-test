@@ -11,15 +11,32 @@
       @input="updateInput"
       required
     />
+
+    <span class="input__error" v-if="errorText">{{ errorText }}</span>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["label", "value", "id", "name", "type"],
+  props: ["label", "value", "id", "name", "type", "min"],
+  data() {
+    return {
+      errorText: "",
+    };
+  },
   methods: {
     updateInput(evt) {
       this.$emit("update:value", evt.target.value);
+
+      if (this.min && evt.target.value < this.min) {
+        this.errorText = "Введите корректный возраст!";
+
+        this.$store.commit("setIsBtnActive", false);
+      } else {
+        this.errorText = "";
+
+        this.$store.commit("setIsBtnActive", true);
+      }
     },
   },
 };
@@ -64,5 +81,14 @@ export default {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+}
+
+.input__error {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  color: red;
+  margin-top: 10px;
 }
 </style>

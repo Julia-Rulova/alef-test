@@ -44,12 +44,15 @@
           <children-container
             :child="child"
             @deleteChild="handleDeleteChild"
+            @disableBtn="setBtnDisable"
           ></children-container>
         </li>
       </ul>
     </article>
 
-    <button class="form__submit-btn" type="submit">Сохранить</button>
+    <button class="form__submit-btn" type="submit" :disabled="!isBtnActive">
+      Сохранить
+    </button>
   </form>
 </template>
 
@@ -75,7 +78,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["userInfoFileds", "currentUser"]),
+    ...mapGetters(["userInfoFileds", "currentUser", "isBtnActive"]),
   },
   mounted() {
     this.$store.commit("setUserInfoFileds", this.currentUser);
@@ -168,6 +171,11 @@ export default {
   border-radius: 100px;
   background: #01a7fd;
   cursor: pointer;
+}
+
+.form__submit-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 @media screen and (max-width: 840px) {

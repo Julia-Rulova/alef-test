@@ -14,6 +14,7 @@
       :name="child.id + 'childAge'"
       :type="'number'"
       :value="child.age"
+      :min="1"
       v-model:value="child.age"
     ></custom-input>
 

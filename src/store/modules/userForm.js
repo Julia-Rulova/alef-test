@@ -2,18 +2,25 @@ export default {
     state: {
         userInfoFileds: {
             name: '',
-            age: 0,
+            age: 1,
             children: []
-        }
+        },
+        isBtnActive: true
     },
     getters: {
         userInfoFileds(state) {
             return state.userInfoFileds;
+        },
+        isBtnActive(state) {
+            return state.isBtnActive
         }
     },
     mutations: {
         setUserInfoFileds(state, user) {
             state.userInfoFileds = JSON.parse(JSON.stringify(user));
+        },
+        setIsBtnActive(state, val) {
+            state.isBtnActive = val
         }
     },
     actions: {
@@ -24,7 +31,7 @@ export default {
             let newChild = {
                 id: Date.now(),
                 name: "",
-                age: 0
+                age: 1
             };
 
             ctx.state.userInfoFileds.children.push(newChild);
