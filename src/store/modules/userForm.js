@@ -2,7 +2,7 @@ export default {
     state: {
         userInfoFileds: {
             name: '',
-            age: 1,
+            age: 0,
             children: []
         },
         isBtnActive: true
@@ -31,7 +31,7 @@ export default {
             let newChild = {
                 id: Date.now(),
                 name: "",
-                age: 1
+                age: 0
             };
 
             ctx.state.userInfoFileds.children.push(newChild);

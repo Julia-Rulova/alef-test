@@ -44,7 +44,6 @@
           <children-container
             :child="child"
             @deleteChild="handleDeleteChild"
-            @disableBtn="setBtnDisable"
           ></children-container>
         </li>
       </ul>

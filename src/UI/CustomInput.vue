@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  props: ["label", "value", "id", "name", "type", "min"],
+  props: ["label", "value", "id", "name", "type"],
   data() {
     return {
       errorText: "",
@@ -28,7 +28,7 @@ export default {
     updateInput(evt) {
       this.$emit("update:value", evt.target.value);
 
-      if (this.min && evt.target.value < this.min) {
+      if (evt.target.value < 0) {
         this.errorText = "Введите корректный возраст!";
 
         this.$store.commit("setIsBtnActive", false);
