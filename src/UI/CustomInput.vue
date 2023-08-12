@@ -26,16 +26,20 @@ export default {
   },
   methods: {
     updateInput(evt) {
-      this.$emit("update:value", Number(evt.target.value));
+      if (this.type === "number") {
+        this.$emit("update:value", Number(evt.target.value));
 
-      if (evt.target.value < 0) {
-        this.errorText = "Введите корректный возраст!";
+        if (evt.target.value < 0) {
+          this.errorText = "Введите корректный возраст!";
 
-        this.$store.commit("setIsBtnActive", false);
+          this.$store.commit("setIsBtnActive", false);
+        } else {
+          this.errorText = "";
+
+          this.$store.commit("setIsBtnActive", true);
+        }
       } else {
-        this.errorText = "";
-
-        this.$store.commit("setIsBtnActive", true);
+        this.$emit("update:value", evt.target.value);
       }
     },
   },
