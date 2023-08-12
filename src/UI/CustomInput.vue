@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     updateInput(evt) {
-      this.$emit("update:value", evt.target.value);
+      this.$emit("update:value", Number(evt.target.value));
 
       if (evt.target.value < 0) {
         this.errorText = "Введите корректный возраст!";
